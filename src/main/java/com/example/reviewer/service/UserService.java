@@ -44,4 +44,8 @@ public class UserService implements UserServiceInterface{
     public User findByEmail(String email){
         return userRepository.findByEmail(email);
     }
+
+    public User findById(Long id){
+        return userRepository.findById(id).orElseThrow();
+    }
 }

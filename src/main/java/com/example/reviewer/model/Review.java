@@ -12,9 +12,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "reviews")
 public class Review {
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "review_user",
             joinColumns = @JoinColumn(name = "review_id"),
@@ -24,7 +25,7 @@ public class Review {
 
     private String description;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "review_game",
             joinColumns = @JoinColumn(name = "review_id"),

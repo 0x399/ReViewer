@@ -2,7 +2,6 @@ package com.example.reviewer.controller;
 
 import com.example.reviewer.model.Game;
 import com.example.reviewer.model.Review;
-import com.example.reviewer.model.User;
 import com.example.reviewer.service.GameService;
 import com.example.reviewer.service.ReviewService;
 import com.example.reviewer.service.UserService;
@@ -12,30 +11,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
-@RequestMapping("/")
-public class UserController {
-
-    @Autowired
-    UserService userService;
-
+@RequestMapping("/reviews")
+public class ReviewController {
     @Autowired
     ReviewService reviewService;
 
     @Autowired
-    GameService gameService;
+    UserService userService;
 
-    public UserController(UserService userService, ReviewService reviewService, GameService gameService) {
-        this.userService = userService;
+    public ReviewController(ReviewService reviewService) {
         this.reviewService = reviewService;
-        this.gameService = gameService;
     }
 
     @GetMapping
     public void getAll(){
-
+        Review game = new Review();
+        game.setUser(userService.findById(13L));
+        game.setDescription("obama");
+        game.setCreatedAt(LocalDateTime.now());
+        reviewService.createReview(game);
     }
 }

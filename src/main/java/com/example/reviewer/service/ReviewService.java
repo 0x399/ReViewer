@@ -5,10 +5,12 @@ import com.example.reviewer.model.Review;
 import com.example.reviewer.model.User;
 import com.example.reviewer.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public class ReviewService implements ReviewServiceInterface{
 
     @Autowired

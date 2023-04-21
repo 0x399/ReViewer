@@ -48,4 +48,6 @@ public class UserService implements UserServiceInterface{
     public User findById(Long id){
         return userRepository.findById(id).orElseThrow();
     }
+
+
 }

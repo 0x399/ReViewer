@@ -3,6 +3,7 @@ package com.example.reviewer.service;
 import com.example.reviewer.model.Game;
 import com.example.reviewer.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +22,8 @@ public class GameService implements GameServiceInterface {
     public List<Game> getByGenre(String genre) {
         return gameRepository.findGamesByGenre(genre);
     }
+
+    public List<Game> findGamesWithSorting(){return gameRepository.findAll(Sort.by(Sort.Direction.DESC,"avgScore"));}
 
     @Override
     public void createGame(Game game) {

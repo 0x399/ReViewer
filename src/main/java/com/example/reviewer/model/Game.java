@@ -3,12 +3,12 @@ package com.example.reviewer.model;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import java.util.List;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "games")
 @Entity
 public class Game {
@@ -25,4 +25,14 @@ public class Game {
 
     @Column(name = "genre", nullable = false)
     private String genre;
+
+    @Column(name = "numofreviews")
+    private int numOfReviews;
+
+    @Column(name = "avgscore", columnDefinition = "DOUBLE PRECISION")
+    private double avgScore;
+
+    public Game() {
+        this.setNumOfReviews(0);
+    }
 }

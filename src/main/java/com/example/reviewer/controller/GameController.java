@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.math.BigDecimal;
+
 @Controller
 @RequestMapping("/games")
 public class GameController {
@@ -20,8 +22,9 @@ public class GameController {
     @GetMapping
     public void getAll(){
         Game game = new Game();
-        game.setName("name");
-        game.setGenre("genre");
+        game.setName("Morbius 2");
+        game.setGenre("Dating Simulator");
+        game.setAvgScore(4.5);
         gameService.createGame(game);
     }
 }

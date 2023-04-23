@@ -22,30 +22,16 @@
     </style>
 </head>
 <body>
-
 <div th:insert="header.html"></div>
-<h1>List of Games</h1>
-<table>
-    <thead>
-    <tr>
-        <th> Id </th>
-        <th> Name </th>
-        <th> Genre </th>
-        <th> User Rating </th>
-        <th> Operations </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="game : ${gamelist}">
-        <td th:text="${gamelist.indexOf(game) + 1}"></td>
-        <td th:text="${game.getName()}"></td>
-        <td th:text="${game.getGenre()}"></td>
-        <td th:text="${game.getAvgScore()}"></td>
-        <td>
-        <a th:href="@{/games/{id}(id=${game.id})}">View</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<h1 th:text="${game.getName()}"></h1>
+<h2 th:text="${game.getAvgScore()}"></h2>
+<h2 th:text="${game.getGenre()}"></h2>
+<h2 th:text="${game.getNumOfReviews()}"></h2>
+<tr th:each="review : ${game.getReviews()}">
+    <td th:text="${review.getScore()}"></td>
+    <td th:text="${review.getCreatedAt()}"></td>
+    <td th:text="${review.getDescription()}"></td>
+    <td th:text="${review.getUser().firstName + ' ' + review.getUser().lastName}"></td>
+</tr>
 </body>
 </html>

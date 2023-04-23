@@ -18,6 +18,10 @@ public class GameService implements GameServiceInterface {
         return gameRepository.findAll();
     }
 
+    public Game getById(Long id){
+        return gameRepository.findById(id).orElseThrow();
+    }
+
     @Override
     public List<Game> getByGenre(String genre) {
         return gameRepository.findGamesByGenre(genre);

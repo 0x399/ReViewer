@@ -50,6 +50,7 @@
         <td th:text="${game.getAvgScore()}"></td>
         <td>
         <a th:href="@{/games/{id}(id=${game.id})}">View</a>
+        <a th:href="@{/games/{id}/delete(id=${game.id})}">Delete</a>
         </td>
     </tr>
     </tbody>

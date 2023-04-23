@@ -10,11 +10,11 @@
 <div th:insert="header.html"></div>
 <h1>Create New Game</h1>
 <form method="POST" th:action="@{/games/create_game}" th:object="${game}">
-    <label for="name">First name: </label>
+    <label for="name">Name: </label>
     <input type="text" id="name" th:field="*{name}"/>
     <br/>
 
-    <label for="genre">Last name: </label>
+    <label for="genre">Genre: </label>
     <input type="text" id="genre" th:field="*{genre}"/>
     <br/>
 

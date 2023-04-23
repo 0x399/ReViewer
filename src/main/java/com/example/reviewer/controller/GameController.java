@@ -55,4 +55,10 @@ public class GameController {
         model.addAttribute("game", gameService.getById(game_id));
         return "game-info";
     }
+
+    @GetMapping("/{game_id}/delete")
+    public String delete(@PathVariable("game_id") Long game_id){
+        gameService.deleteGame(gameService.getById(game_id));
+        return "redirect:/games";
+    }
 }

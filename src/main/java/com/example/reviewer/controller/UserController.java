@@ -8,16 +8,15 @@ import com.example.reviewer.service.ReviewService;
 import com.example.reviewer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
-@RequestMapping("/")
+@Controller
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -29,6 +28,10 @@ public class UserController {
     @Autowired
     GameService gameService;
 
+    @ModelAttribute(name = "userlist")
+    public List<User> userlist(){
+        return userService.getAll();
+    }
     public UserController(UserService userService, ReviewService reviewService, GameService gameService) {
         this.userService = userService;
         this.reviewService = reviewService;
@@ -36,7 +39,19 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getAll(){
-        return userService.getAll();
+    public String getAll(){
+        return "users-list";
+    }
+
+    @GetMapping("/{user_id}")
+    public String read(@PathVariable("user_id") Long user_id, Model model){
+        model.addAttribute("user", userService.findById(user_id));
+        return "user-info";
+    }
+
+    @GetMapping("/{user_id}/delete")
+    public String delete(@PathVariable("user_id") Long user_id){
+        userService.deleteUser(userService.findById(user_id));
+        return "redirect:/users";
     }
 }

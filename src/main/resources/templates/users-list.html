@@ -24,11 +24,11 @@
 <body>
 
 <div th:insert="header.html"></div>
-<h1>List of Games</h1>
+<h1>List of Users</h1>
 
 <a href="/games/create_game">
     <div class="button">
-        Create new Game
+        Create new User
     </div>
 </a>
 
@@ -36,21 +36,21 @@
     <thead>
     <tr>
         <th> Id </th>
-        <th> Name </th>
-        <th> Genre </th>
-        <th> User Rating </th>
-        <th> Operations </th>
+        <th> First name </th>
+        <th> Last name </th>
+        <th> Email </th>
+        <th> View </th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="game : ${gamelist}">
-        <td th:text="${gamelist.indexOf(game) + 1}"></td>
-        <td th:text="${game.getName()}"></td>
-        <td th:text="${game.getGenre()}"></td>
-        <td th:text="${game.getAvgScore()}"></td>
+    <tr th:each="user : ${userlist}">
+        <td th:text="${userlist.indexOf(user) + 1}"></td>
+        <td th:text="${user.getFirstName()}"></td>
+        <td th:text="${user.getLastName()}"></td>
+        <td th:text="${user.getEmail()}"></td>
         <td>
-        <a th:href="@{/games/{id}(id=${game.id})}">View</a>
-        <a th:href="@{/games/{id}/delete(id=${game.id})}">Delete</a>
+            <a th:href="@{/users/{id}(id=${user.id})}">View</a>
+            <a th:href="@{/users/{id}/delete(id=${user.id})}">Delete</a>
         </td>
     </tr>
     </tbody>

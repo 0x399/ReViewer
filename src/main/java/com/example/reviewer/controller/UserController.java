@@ -32,6 +32,12 @@ public class UserController {
     public List<User> userlist(){
         return userService.getAll();
     }
+
+    @ModelAttribute(name = "user")
+    public User user(){
+        User user = new User();
+        return user;
+    }
     public UserController(UserService userService, ReviewService reviewService, GameService gameService) {
         this.userService = userService;
         this.reviewService = reviewService;
@@ -52,6 +58,17 @@ public class UserController {
     @GetMapping("/{user_id}/delete")
     public String delete(@PathVariable("user_id") Long user_id){
         userService.deleteUser(userService.findById(user_id));
+        return "redirect:/users";
+    }
+
+    @GetMapping("/create_user")
+    public String createNewGame(){
+        return "create-user";
+    }
+
+    @PostMapping("/create_user")
+    public String createNewGame(@ModelAttribute("user") User user){
+        userService.createUser(user);
         return "redirect:/users";
     }
 }

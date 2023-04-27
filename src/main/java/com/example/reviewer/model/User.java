@@ -18,7 +18,7 @@ public class User {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Review> reviews;
 
     @Column(name = "email", nullable = false, unique = true)

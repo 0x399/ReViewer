@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New User</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div th:insert="header.html"></div>
+<h1>Create New Game</h1>
+<form method="POST" th:action="@{/users/create_user}" th:object="${user}">
+    <label for="firstName">First Name: </label>
+    <input type="text" id="firstName" th:field="*{firstName}"/>
+    <br/>
+
+    <label for="lastName">Last Name: </label>
+    <input type="text" id="lastName" th:field="*{lastName}"/>
+    <br/>
+
+    <label for="email">Genre: </label>
+    <input type="text" id="email" th:field="*{email}"/>
+    <br/>
+
+    <input type="submit" value="Register"/>
+    <input type="reset" value="Clear"/>
+</form>
+</body>
+</html>

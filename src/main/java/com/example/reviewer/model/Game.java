@@ -20,7 +20,7 @@ public class Game {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "game")
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL)
     private List<Review> reviews;
 
     @Column(name = "genre", nullable = false)
@@ -34,5 +34,15 @@ public class Game {
 
     public Game() {
         this.setNumOfReviews(0);
+    }
+
+    @Override
+    public String toString() {
+        return
+                " Name='" + name + '\'' +
+                ", genre='" + genre + '\'' +
+                ", numOfReviews=" + numOfReviews +
+                ", avgScore=" + avgScore +
+                '}';
     }
 }

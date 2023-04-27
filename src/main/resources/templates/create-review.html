@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New User</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div th:insert="header.html"></div>
+<h1>Create New Game</h1>
+<form method="POST" th:action="@{/reviews/create-review}" th:object="${review}">
+    <label for="Game">Game:</label>
+    <select id="Game" name="Game" th:field="*{game}">
+        <option th:each="game : ${gamelist}" th:value="${game.getId()}" th:text="${game.name}"></option>
+    </select>
+
+    <label for="User">User:</label>
+    <select id="User" name="User" th:field="*{user}">
+        <option th:each="user : ${userlist}" th:value="${user.getId()}" th:text="${user.getFirstName() + ' ' + user.getLastName()}"></option>
+    </select>
+
+    <label for="Description">Review : </label>
+    <input type="text" id="Description" th:field="*{description}"/>
+    <br/>
+
+    <label for="Score">Score:</label>
+    <select id="Score" name="Score" th:field="*{score}">
+        <option th:each="number : ${#numbers.sequence(1,5)}" th:value="${number}" th:text="${number}"></option>
+    </select>
+
+    <input type="submit" value="Register"/>
+    <input type="reset" value="Clear"/>
+</form>
+</body>
+</html>

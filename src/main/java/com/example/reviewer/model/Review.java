@@ -40,6 +40,17 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private byte score;
+    private Byte score;
 
+    @Override
+    public String toString() {
+        return "Review{" +
+                "user=" + user.getFirstName() + " " + user.getLastName() +
+                ", description='" + description + '\'' +
+                ", game=" + game.getName() +
+                ", createdAt=" + createdAt +
+                ", id=" + id +
+                ", score=" + score +
+                '}';
+    }
 }

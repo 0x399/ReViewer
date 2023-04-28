@@ -38,24 +38,6 @@
     </div>
 </a>
 
-<a href="/games/Shooter">
-    <div class="button">
-        Strategy games
-    </div>
-</a>
-
-<a href="/games/Sport">
-    <div class="button">
-        Strategy games
-    </div>
-</a>
-
-<a href="/games/Simulator">
-    <div class="button">
-        Strategy games
-    </div>
-</a>
-
 <table>
     <thead>
     <tr>
@@ -73,8 +55,8 @@
         <td th:text="${game.getGenre()}"></td>
         <td th:text="${game.getAvgScore()}"></td>
         <td>
-        <a th:href="@{/games/game/{id}(id=${game.id})}">View</a>
-        <a th:href="@{/games/game/{id}/delete(id=${game.id})}">Delete</a>
+            <a th:href="@{/games/{id}(id=${game.id})}">View</a>
+            <a th:href="@{/games/{id}/delete(id=${game.id})}">Delete</a>
         </td>
     </tr>
     </tbody>

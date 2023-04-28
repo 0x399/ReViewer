@@ -50,15 +50,21 @@ public class GameController {
         return "redirect:/games";
     }
 
-    @GetMapping("/{game_id}")
+    @GetMapping("/game/{game_id}")
     public String read(@PathVariable("game_id") Long game_id, Model model){
         model.addAttribute("game", gameService.getById(game_id));
         return "game-info";
     }
 
-    @GetMapping("/{game_id}/delete")
+    @GetMapping("/game/{game_id}/delete")
     public String delete(@PathVariable("game_id") Long game_id){
         gameService.deleteGame(gameService.getById(game_id));
         return "redirect:/games";
+    }
+
+    @GetMapping("/{genre}")
+    public String getByGenre(@PathVariable("genre") String genre, Model model){
+        model.addAttribute("gamelist", gameService.getByGenre(genre));
+        return "games-list";
     }
 }

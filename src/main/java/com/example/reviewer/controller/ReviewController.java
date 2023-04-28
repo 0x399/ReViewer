@@ -68,12 +68,13 @@ public class ReviewController {
     @PostMapping("create-review")
     public String createNewReview(@ModelAttribute("review") Review review){
         review.setCreatedAt(LocalDateTime.now());
-        review.getGame().setNumOfReviews(review.getGame().getNumOfReviews() + 1);
         review.getGame().getReviews().add(review);
         review.getUser().getReviews().add(review);
         review.getGame().setAvgScore((review.getGame().getNumOfReviews() * review.getGame().getAvgScore() + review.getScore())
                 / (review.getGame().getNumOfReviews() + 1));
+        review.getGame().setNumOfReviews(review.getGame().getNumOfReviews() + 1);
         reviewService.createReview(review);
         return "redirect:/reviews";
     }
+
 }

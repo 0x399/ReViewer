@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
+import java.util.Base64;
 import java.util.List;
 
 @Data
@@ -36,6 +37,10 @@ public class Game {
         this.setNumOfReviews(0);
     }
 
+    @Lob
+    @Column(name = "image", columnDefinition = "bytea")
+    private byte[] image;
+
     @Override
     public String toString() {
         return
@@ -44,5 +49,10 @@ public class Game {
                 ", numOfReviews=" + numOfReviews +
                 ", avgScore=" + avgScore +
                 '}';
+    }
+
+
+    public String getImageAsText(){
+        return Base64.getEncoder().encodeToString(image);
     }
 }

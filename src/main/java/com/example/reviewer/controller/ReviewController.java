@@ -6,13 +6,13 @@ import com.example.reviewer.model.User;
 import com.example.reviewer.service.GameService;
 import com.example.reviewer.service.ReviewService;
 import com.example.reviewer.service.UserService;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -66,7 +66,15 @@ public class ReviewController {
     }
 
     @PostMapping("create-review")
-    public String createNewReview(@ModelAttribute("review") Review review){
+    public String createNewReview(@RequestParam Game game,
+                                  @RequestParam User user,
+                                  @RequestParam String description,
+                                  @RequestParam Byte score) throws IOException {
+        Review review = new Review();
+        review.setScore(score);
+        review.setGame(game);
+        review.setDescription(description);
+        review.setUser(user);
         review.setCreatedAt(LocalDateTime.now());
         review.getGame().getReviews().add(review);
         review.getUser().getReviews().add(review);

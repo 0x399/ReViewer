@@ -40,19 +40,19 @@
 
 <a href="/games/Shooter">
     <div class="button">
-        Strategy games
+        Shooter games
     </div>
 </a>
 
 <a href="/games/Sport">
     <div class="button">
-        Strategy games
+        Sport games
     </div>
 </a>
 
 <a href="/games/Simulator">
     <div class="button">
-        Strategy games
+        Simulator games
     </div>
 </a>
 
@@ -68,6 +68,9 @@
     </thead>
     <tbody>
     <tr th:each="game : ${gamelist}">
+        <td>
+            <img th:attr="src=${'data:image/jpeg;base64,' + (game.getImageAsText())}" alt="Profile Picture" th:style="'width: 100px; height: 100px; border-radius: 50%;'">
+        </td>
         <td th:text="${gamelist.indexOf(game) + 1}"></td>
         <td th:text="${game.getName()}"></td>
         <td th:text="${game.getGenre()}"></td>

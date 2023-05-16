@@ -9,7 +9,7 @@
 <body>
 <div th:insert="header.html"></div>
 <h1>Create New Game</h1>
-<form method="POST" th:action="@{/reviews/create-review}" th:object="${review}">
+<form method="POST" th:action="@{/reviews/create-review}" th:object="${review}" enctype="multipart/form-data">
     <label for="Game">Game:</label>
     <select id="Game" name="Game" th:field="*{game}">
         <option th:each="game : ${gamelist}" th:value="${game.getId()}" th:text="${game.name}"></option>
@@ -28,6 +28,10 @@
     <select id="Score" name="Score" th:field="*{score}">
         <option th:each="number : ${#numbers.sequence(1,5)}" th:value="${number}" th:text="${number}"></option>
     </select>
+
+    <label for="screenshot"> Add a screenshot:</label>
+    <input type="file" id="screenshot" name="screenshot">
+    <br>
 
     <input type="submit" value="Register"/>
     <input type="reset" value="Clear"/>

@@ -29,10 +29,6 @@
         <option th:each="number : ${#numbers.sequence(1,5)}" th:value="${number}" th:text="${number}"></option>
     </select>
 
-    <label for="screenshot"> Add a screenshot:</label>
-    <input type="file" id="screenshot" name="screenshot">
-    <br>
-
     <input type="submit" value="Register"/>
     <input type="reset" value="Clear"/>
 </form>

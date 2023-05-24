@@ -1,11 +1,202 @@
-<div style="
-width: 100%;
-margin-bottom: 20px;
-padding: 20px;
-background-color: #cbcbcb;
-font-size: 18pt;
-">
-    <a href="/games" style="text-decoration: none; color: gray">ReViewer</a>
-    <a href="/users" style="text-decoration: none; color: gray">Users</a>
-    <a href="/reviews" style="text-decoration: none; color: gray">Reviews</a>
-</div>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* font-family: 'Cinzel Decorative', cursive; */
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-weight: inherit;
+            font-style: inherit;
+            font-size: 100%;
+            font-family: inherit;
+            vertical-align: baseline;
+            text-decoration: none;
+        }
+
+        .bg_video{
+            position: absolute;
+            margin-top: 100px;
+            margin-left: 30px;
+            height: 700px;
+            width: 1400px;
+            max-width: 100%;
+            max-width: 100%;
+        }
+
+        .mainheader{
+            position: relative;
+            margin-top: 20px;
+            margin-left: 10px;
+            margin-right: 30px;
+            width: 99%;
+            background-color: rgb(39,54,91,0.7);
+            backdrop-filter: blur(100px);
+            border-radius: 15px
+        ;
+
+        }
+        .register {
+
+            display: inline-block;
+            float: right;
+            padding: 5px 0;
+            margin: 10px;
+
+        }
+        .register button{
+            background-color: #060c11;
+            font-family: 'EB Garamond', serif;
+            text-align: center;
+            font-size: 25px;
+            color:white ;
+            border-radius: 10px;
+            height: 40px;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        .logo{
+            display: inline-block;
+            font-family: 'Cinzel Decorative', bold;
+            color: #0e8ecf;
+            font-size: 30px;
+            font-weight: 1000;
+            position: relative;
+            left: 10px;
+            margin: 10px;
+
+        }
+        .logo:hover{
+
+            color: #00d0ff;
+        }
+
+        .menu{
+            display: inline-block;
+            margin-left: 60px;
+        }
+        .menu ul li{
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            font-style: normal;
+        }
+
+        .menu ul li a{
+
+            position: relative;
+            color: #eaf1f9;
+            font-size: 20px;
+            padding: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-family: 'EB Garamond', serif;
+            text-align: center;
+            display: block;
+            border-radius: 10px;
+            font-style: normal;
+        }
+        .menu ul li a:hover{
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .menu ul li:hover> ul{
+            display: initial;
+        }
+
+        .menu ul li  ul{
+            position: absolute;
+            left:0;
+            width: 180px;
+            background-color: rgb(39,54,91,0.7);
+            color: #eaf1f9;
+            font-family: 'EB Garamond', serif;
+
+            display: none;
+
+        }
+        .grid-container {
+            display: grid;
+            grid-template-rows: 1000px 200px;
+            height: 100vh;
+        }
+        .slogan{
+            position: absolute;
+            font-family: 'Cinzel Decorative', bold;
+            color:#eaf1f9;
+            font-size: 40px;
+            margin-left: 32%;
+            margin-top: 8%;
+        }
+        .textus{
+            position: absolute;
+            margin-top: 20%;
+            margin-left: 9%;
+            padding: 2px;
+            font-family: 'EB Garamond', serif;
+            color:#eaf1f9;
+            font-size: 24px;
+            height:100px;
+            width: 1200px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 5px
+        }
+
+        .row1 {
+            background-color:  rgb(19, 28, 52);
+        }
+
+        .row2 {
+            background-color: #000000;
+            justify-content: center;
+            align-items: center;
+        }
+        .footlogo{
+            font-family: 'Cinzel Decorative', bold;
+            color: #0e8ecf;
+            font-size: 30px;
+            font-weight: 1000;
+            margin-left: 50%;
+            margin-top: 10px;
+            transition: background-color 1.5s ease;
+        }
+        .footlogo:hover{
+
+            color: #00d0ff;
+        }
+        .autor{
+            font-family: 'EB Garamond', serif;
+            font-size: 16px;
+            margin-top: 70px;
+            color:#eaf1f9;
+            margin-left: 46%;
+        }
+
+    </style>
+</head>
+<body>
+<header class="mainheader">
+    <div class="logo"><a href="/">ReViever</a></div>
+    <div class="register"> <a href="/users/create_user"><button>Зареєструватись</button></a></div>
+    <div class="menu">
+        <ul>
+            <li><a href="/games">Бібліотека ігор &#709;</a><ul>
+                <li><a href="/games">Переглянути список ігор</a></li>
+                <li><a href="/games/create_game">Створити сторінку для гри</a></li>
+            </ul></li>
+            <li><a href="/users">Спільнота </a></li>
+        </ul></div>
+</header>
+</body>
+</html>

@@ -10,7 +10,7 @@ public class HomeComtroller {
 
     @GetMapping
     public String home(){
-        return "redirect:/games";
+        return "homepage";
     }
 
 }

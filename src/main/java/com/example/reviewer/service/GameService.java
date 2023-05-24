@@ -2,12 +2,15 @@ package com.example.reviewer.service;
 
 import com.example.reviewer.model.Game;
 import com.example.reviewer.repository.GameRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Transactional
+@org.springframework.transaction.annotation.Transactional
 @Service
 public class GameService implements GameServiceInterface {
     @Autowired

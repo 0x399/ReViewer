@@ -2,6 +2,7 @@ package com.example.reviewer.controller;
 
 import com.example.reviewer.model.Game;
 import com.example.reviewer.model.Review;
+import com.example.reviewer.model.ReviewDTO;
 import com.example.reviewer.model.User;
 import com.example.reviewer.service.GameService;
 import com.example.reviewer.service.ReviewService;
@@ -16,6 +17,8 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@jakarta.transaction.Transactional
+@org.springframework.transaction.annotation.Transactional
 @Controller
 @RequestMapping("/reviews")
 public class ReviewController {

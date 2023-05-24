@@ -16,6 +16,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@jakarta.transaction.Transactional
+@org.springframework.transaction.annotation.Transactional
 @Controller
 @RequestMapping("/games")
 public class GameController {

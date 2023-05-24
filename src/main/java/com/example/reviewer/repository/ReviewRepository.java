@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@jakarta.transaction.Transactional
+@org.springframework.transaction.annotation.Transactional
 public interface ReviewRepository extends JpaRepository<Review, Long> {
     public List<Review> findByUser_Id(Long userId);
 

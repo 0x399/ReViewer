@@ -25,8 +25,8 @@
 <div th:insert="header.html"></div>
 <h1 th:text="${user.getFirstName() + ' ' + user.getLastName()}"></h1>
 <h1 th:text="${user.getEmail()}"></h1>
-<h2 th:text="'Reviews written - ' + ${user.getReviews().size()}"></h2>
-<tr th:each="review : ${user.getReviews()}">
+<h2 th:text="'Reviews written - ' + ${user.reviewDTO.size()}"></h2>
+<tr th:each="review : ${user.reviewDTO}">
     <td th:text="${review.getScore()}"></td>
     <td th:text="${review.getCreatedAt()}"></td>
     <td th:text="${review.getDescription()}"></td>

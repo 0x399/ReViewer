@@ -2,12 +2,15 @@ package com.example.reviewer.service;
 
 import com.example.reviewer.model.User;
 import com.example.reviewer.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
+@org.springframework.transaction.annotation.Transactional
 @Service
 public class UserService implements UserServiceInterface{
 

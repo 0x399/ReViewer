@@ -3,6 +3,7 @@ package com.example.reviewer.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -20,6 +21,9 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Review> reviews;
+
+    @Transient
+    private List<ReviewDTO> reviewDTO = new ArrayList<>();
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;

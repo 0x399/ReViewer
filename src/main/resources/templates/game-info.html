@@ -34,7 +34,7 @@
     <td th:text="${review.getScore()}"></td>
     <td th:text="${review.getCreatedAt()}"></td>
     <td th:text="${review.getDescription()}"></td>
-    <td th:text="${review.getUser().firstName + ' ' + review.getUser().lastName}"></td>
+    <a th:href="@{/users/{id}(id=${review.user.id})}"><td th:text="${review.getUser().firstName + ' ' + review.getUser().lastName}"></td></a>
 </tr>
 </body>
 </html>

@@ -28,6 +28,7 @@
 <h2 th:text="'Reviews written - ' + ${user.reviewDTO.size()}"></h2>
 <tr th:each="review : ${user.reviewDTO}">
     <td th:text="${review.getScore()}"></td>
+    <a th:href="@{/games/game/{id}(id=${review.gameID})}"><td th:text="${review.gameName}"></td></a>
     <td th:text="${review.getCreatedAt()}"></td>
     <td th:text="${review.getDescription()}"></td>
     <td th:text="${review.getUser().firstName + ' ' + review.getUser().lastName}"></td>

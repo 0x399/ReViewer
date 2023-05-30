@@ -68,7 +68,7 @@ public class ReviewController {
         return "create-review";
     }
 
-    @PostMapping("create-review")
+    @PostMapping("/create-review")
     public String createNewReview(@RequestParam Game game,
                                   @RequestParam User user,
                                   @RequestParam String description,

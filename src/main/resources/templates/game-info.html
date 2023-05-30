@@ -36,5 +36,26 @@
     <td th:text="${review.getDescription()}"></td>
     <a th:href="@{/users/{id}(id=${review.user.id})}"><td th:text="${review.getUser().firstName + ' ' + review.getUser().lastName}"></td></a>
 </tr>
+
+<form method="POST" th:action="@{/games/game/{id}(id=${game.id})}" th:object="${review}" enctype="multipart/form-data">
+
+    <label for="User">User:</label>
+    <select id="User" name="User" th:field="*{user}">
+        <option th:each="user : ${userlist}" th:value="${user.getId()}" th:text="${user.getFirstName() + ' ' + user.getLastName()}"></option>
+    </select>
+
+    <label for="Description">Review : </label>
+    <input type="text" id="Description" th:field="*{description}"/>
+    <br/>
+
+    <label for="Score">Score:</label>
+    <select id="Score" name="Score" th:field="*{score}">
+        <option th:each="number : ${#numbers.sequence(1,5)}" th:value="${number}" th:text="${number}"></option>
+    </select>
+
+    <input type="submit" value="Register"/>
+    <input type="reset" value="Clear"/>
+</form>
+
 </body>
 </html>

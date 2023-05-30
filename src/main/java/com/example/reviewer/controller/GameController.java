@@ -4,6 +4,8 @@ import com.example.reviewer.model.Game;
 import com.example.reviewer.model.Review;
 import com.example.reviewer.model.User;
 import com.example.reviewer.service.GameService;
+import com.example.reviewer.service.ReviewService;
+import com.example.reviewer.service.UserService;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,9 +26,20 @@ public class GameController {
     @Autowired
     GameService gameService;
 
+    @Autowired
+    ReviewService reviewService;
+
+    @Autowired
+    UserService userService;
+
     @ModelAttribute(name = "gamelist")
     public List<Game> gamelist(){
         return gameService.findGamesWithSorting();
+    }
+
+    @ModelAttribute(name = "userlist")
+    public List<User> userlist(){
+        return userService.getAll();
     }
 
     @ModelAttribute(name = "game")
@@ -35,8 +48,16 @@ public class GameController {
         return game;
     }
 
-    public GameController(GameService gameService) {
+    @ModelAttribute(name = "review")
+    public Review review(){
+        Review review = new Review();
+        return review;
+    }
+
+    public GameController(GameService gameService, ReviewService reviewService, UserService userService) {
         this.gameService = gameService;
+        this.reviewService = reviewService;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -77,5 +98,25 @@ public class GameController {
     public String getByGenre(@PathVariable("genre") String genre, Model model){
         model.addAttribute("gamelist", gameService.getByGenre(genre));
         return "games-list";
+    }
+
+    @PostMapping("/game/{game_id}")
+    public String createNewReview(@PathVariable("game_id") Long gameId,
+                                  @RequestParam User user,
+                                  @RequestParam String description,
+                                  @RequestParam Byte score) throws IOException {
+        Review review = new Review();
+        review.setScore(score);
+        review.setGame(gameService.getById(gameId));
+        review.setDescription(description);
+        review.setUser(user);
+        review.setCreatedAt(LocalDateTime.now());
+        review.getGame().getReviews().add(review);
+        review.getUser().getReviews().add(review);
+        review.getGame().setAvgScore((review.getGame().getNumOfReviews() * review.getGame().getAvgScore() + review.getScore())
+                / (review.getGame().getNumOfReviews() + 1));
+        review.getGame().setNumOfReviews(review.getGame().getNumOfReviews() + 1);
+        reviewService.createReview(review);
+        return "redirect:/games/game/" + gameId;
     }
 }

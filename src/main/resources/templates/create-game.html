@@ -3,28 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Create New User</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style/сreate_game.css">
+    
 </head>
 <body>
 <div th:insert="header.html"></div>
-<h1>Create New Game</h1>
+
+<div th:insert="header.html"></div>
+
+<header class="mainheader">
+    <div class="logo">ReViever</div>
+    <div class="register"><button onclick="redirect()">Sign up</button></div>
+    <div class="menu">
+        <ul>
+        <li><a href="#">Game library &#709;</a><ul>
+            <li><a href="#">View the list of games</a></li>
+            <li><a href="#">Create a page for the game</a></li>
+        </ul></li>
+        <li><a href="#">Community </a></li>
+    </ul></div>
 
   </header>
-<form method="POST" th:action="@{/games/create_game}" th:object="${game}" enctype="multipart/form-data" class="regist">
-    <label for="name">Name: </label>
-    <input type="text" id="name" th:field="*{name}"/>
-    <br/>
 
-    <label for="genre">Genre: </label>
-    <input type="text" id="genre" th:field="*{genre}"/>
-    <br/>
+  </header>
+  <div class="container"></div>
 
-    <label for="image"> Picture:</label>
+  <form method="POST" th:action="@{/games/create_game}" th:object="${game}" enctype="multipart/form-data" class="form">
+    <h2 class="form_tittle">ReViever</h2>
+    <h1 class="form_tittle">Create Game</h1>
+    <div class="form_group">
+        <input type="text" placeholder="Name" class="form_input"  id="name" th:field="*{name}"/>
+        <br/></div>
+   
+<div class="form_group">
+    <input type="text " placeholder="Genre"class="form_input" id="genre" th:field="*{genre}"/>
+    <br/></div>
+    
+    <div class="form_group2">
+    <label for="Image"> Picture:</label>
     <input type="file" id="image" name="image">
-    <br>
+    <br></div>
+    
 
-    <input type="submit" value="Register"/>
-    <input type="reset" value="Clear"/>
+    <input type="submit" class="submit" value="Register"/>
+    <input type="reset" class="reset" value="Clear"/>
 </form>
+
+
 </body>
 </html>

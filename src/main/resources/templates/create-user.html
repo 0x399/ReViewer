@@ -11,14 +11,14 @@
 
 <header class="mainheader">
     <div class="logo">ReViever</div>
-    <div class="register"><button onclick="redirect()">Зареєструватись</button></div>
+    <div class="register"><button onclick="redirect()">Sign up</button></div>
     <div class="menu">
         <ul>
-        <li><a href="#">Бібліотека ігор &#709;</a><ul>
-            <li><a href="#">Переглянути список ігор</a></li>
-            <li><a href="#">Створити сторінку для гри</a></li>
+        <li><a href="#">Game library &#709;</a><ul>
+            <li><a href="#">View the list of games</a></li>
+            <li><a href="#">Create a page for the game</a></li>
         </ul></li>
-        <li><a href="#">Спільнота </a></li>
+        <li><a href="#">Community </a></li>
     </ul></div>
 
   </header>
@@ -26,23 +26,23 @@
 <div class="container"></div>
 <form method="POST" th:action="@{/users/create_user}" th:object="${user}" class="form">
     <h2 class="form_tittle">ReViever</h2>
-    <h1 class="form_tittle">Реєстрація</h1>
+    <h1 class="form_tittle">Registration</h1>
     <div class="form_group">
-        <input type="text" placeholder="Ім'я" class="form_input"  id="firstName" th:field="*{firstName}"/>
+        <input type="text" placeholder="First name" class="form_input"  id="firstName" th:field="*{firstName}"/>
         <br/></div>
    
 <div class="form_group">
-    <input type="text " placeholder="Прізвище"class="form_input" id="lastName" th:field="*{lastName}"/>
+    <input type="text " placeholder="Last name"class="form_input" id="lastName" th:field="*{lastName}"/>
     <br/></div>
 
-    І
+    
 <div class="form_group">
-    <input type="text" placeholder="Пошта" class="form_input" id="email" th:field="*{email}"/>
+    <input type="text" placeholder="Emeil" class="form_input" id="email" th:field="*{email}"/>
     <br/></div>
     
 
-    <input type="submit" class="submit" value="Зареєструватись"/>
-    <input type="reset" class="reset" value="Очистити"/>
+    <input type="submit" class="submit" value="Sign up"/>
+    <input type="reset" class="reset" value="Clear"/>
 </form>
 </body>
 </html>

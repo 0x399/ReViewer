@@ -104,7 +104,7 @@
     }
 
 body {
-       background-image: url("/src/main/resources/templates/img/make_user.jpg");
+       background-image: url("/src/main/resources/templates/img/create_game.webp");
     background-size: cover;
        background-color: #000000;
       }
@@ -179,3 +179,7 @@ body {
    .reset{
     margin-left: 40px;
    }
+.form_group2{
+    margin-bottom: 50px;
+    margin-left: 20%;
+}

@@ -11,205 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="style/create_user.css">
     <title>Create New User</title>
-    <style>*{
-        margin: 0;
-        padding: 0;
-        border: 0;
-        outline: 0;
-        font-weight: inherit;
-        font-style: inherit;
-        font-size: 100%;
-        font-family: inherit;
-        vertical-align: baseline;
-        text-decoration: none;
-    }
-
-
-    .mainheader{
-        position: fixed;
-        margin-top: 20px;
-        margin-left: 10px;
-        margin-right: 30px;
-        width: 99%;
-        background-color: rgb(39,54,91,0.7);
-        backdrop-filter: blur(100px);
-        border-radius: 15px
-    ;
-
-    }
-    .register {
-
-        display: inline-block;
-        float: right;
-        padding: 5px 0;
-        margin: 10px;
-
-    }
-    .register button{
-        background-color: #060c11;
-        font-family: 'EB Garamond', serif;
-        text-align: center;
-        font-size: 25px;
-        color:white ;
-        border-radius: 10px;
-        height: 40px;
-        width: 200px;
-        cursor: pointer;
-    }
-
-    .logo{
-        display: inline-block;
-        font-family: 'Cinzel Decorative', bold;
-        color: #0e8ecf;
-        font-size: 30px;
-        font-weight: 1000;
-        position: relative;
-        left: 10px;
-        margin: 10px;
-
-    }
-    .logo:hover{
-
-        color: #00d0ff;
-    }
-
-    .menu{
-        display: inline-block;
-        margin-left: 60px;
-    }
-    .menu ul li{
-        position: relative;
-        display: inline-block;
-        text-align: center;
-        font-style: normal;
-    }
-
-    .menu ul li a{
-
-        position: relative;
-        color: #eaf1f9;
-        font-size: 20px;
-        padding: 10px;
-        margin-left: 20px;
-        font-family: 'EB Garamond', serif;
-        text-align: center;
-        display: block;
-        border-radius: 10px;
-        font-style: normal;
-    }
-    .menu ul li a:hover{
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-    .menu ul li:hover> ul{
-        display: initial;
-    }
-
-    .menu ul li  ul{
-        position: absolute;
-        left:0;
-        width: 180px;
-        background-color: rgb(39,54,91,0.7);
-        color: #eaf1f9;
-        font-family: 'EB Garamond', serif;
-
-        display: none;
-
-    }
-
-    body {
-        background-image: url("../make_user.jpg");
-        background-size: cover;
-    }
-
-    .footlogo{
-        font-family: 'Cinzel Decorative', bold;
-        color: #0e8ecf;
-        font-size: 30px;
-        font-weight: 1000;
-        margin-left: 50%;
-        margin-top: 10px;
-        transition: background-color 1.5s ease;
-    }
-    .footlogo:hover{
-
-        color: #00d0ff;
-    }
-    .autor{
-        font-family: 'EB Garamond', serif;
-        font-size: 16px;
-        margin-top: 70px;
-        color:#eaf1f9;
-        margin-left: 46%;
-    }
-    .form{
-        position: absolute;
-        margin-top: 150px;
-        margin-left:500px;
-        background-color: rgba(17, 28, 56, 0.7);
-        color: #eaf1f9;
-        font-family: 'EB Garamond', serif;
-        width: 500px;
-        height: 500px;
-
-    }
-    .form h2{
-        text-align: center;
-        font-family: 'Cinzel Decorative', bold;
-        padding-top: 5px;
-        padding-bottom: 15px;
-        font-size: 30px;
-
-    }
-
-    .form h1{
-        text-align: center;
-        padding-top: 5px;
-        padding-bottom: 15px;
-        font-size: 40px;
-        padding-bottom: 60px;
-    }
-
-    .mainheader{
-        position: fixed;
-        margin-top: 20px;
-        margin-left: 10px;
-        margin-right: 30px;
-        width: 99%;
-        background-color: rgb(39,54,91,0.7);
-        backdrop-filter: blur(100px);
-        border-radius: 15px
-    ;
-
-    }
-
-    .form_group{
-        text-align: center;
-    }
-    .form_input{
-        height: 20px;
-        width: 300px;
-        margin-bottom: 50px;
-        border-radius: 5px;
-        height: 25px;
-    }
-    .submit,.reset{
-        height: 40px;
-        width: 200px;
-        color: #ffffff;
-        background-color: #000000;
-        margin-left: 15px;
-    }
-    .reset{
-        margin-left: 40px;
-    }</style>
-</head>
-<body>
-
+    
 
 <header class="mainheader">
-<<<<<<< HEAD
     <div class="logo">ReViever</div>
     <div class="register"><button onclick="redirect()">Sign up</button></div>
     <div class="menu">
@@ -222,19 +28,7 @@
     </ul></div>
 
   </header>
-=======
-    <div class="logo"><a href="/">ReViever</a></div>
-    <div class="register"> <a href="/users/create_user"><button>Зареєструватись</button></a></div>
-    <div class="menu">
-        <ul>
-            <li><a href="/games">Бібліотека ігор &#709;</a><ul>
-                <li><a href="/games">Переглянути список ігор</a></li>
-                <li><a href="/games/create_game">Створити сторінку для гри</a></li>
-            </ul></li>
-            <li><a href="/users">Спільнота </a></li>
-        </ul></div>
-</header>
->>>>>>> 97f65452fc5eb6a7b1ec913e07b06dd67af5a40e
+
   
 <div class="container"></div>
 <form method="POST" th:action="@{/users/create_user}" th:object="${user}" class="form">
@@ -248,7 +42,7 @@
     <input type="text " placeholder="Last name"class="form_input" id="lastName" th:field="*{lastName}"/>
     <br/></div>
 
-    
+
 <div class="form_group">
     <input type="text" placeholder="Emeil" class="form_input" id="email" th:field="*{email}"/>
     <br/></div>

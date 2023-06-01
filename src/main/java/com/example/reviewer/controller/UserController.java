@@ -2,6 +2,7 @@ package com.example.reviewer.controller;
 
 import com.example.reviewer.model.Game;
 import com.example.reviewer.model.Review;
+import com.example.reviewer.model.ReviewDTO;
 import com.example.reviewer.model.User;
 import com.example.reviewer.service.GameService;
 import com.example.reviewer.service.ReviewService;
@@ -15,6 +16,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@jakarta.transaction.Transactional
+@org.springframework.transaction.annotation.Transactional
 @Controller
 @RequestMapping("/users")
 public class UserController {
@@ -51,6 +54,12 @@ public class UserController {
 
     @GetMapping("/{user_id}")
     public String read(@PathVariable("user_id") Long user_id, Model model){
+        User user = userService.findById(user_id);
+        for(int i = 0; i < userService.findById(user_id).getReviews().size(); i++){
+            userService.findById(user_id).getReviewDTO().add(new ReviewDTO(userService.findById(user_id), user.getReviews().get(i).getDescription(),
+                    user.getReviews().get(i).getGame().getId(), user.getReviews().get(i).getGame().getName(),
+                    user.getReviews().get(i).getScore()));
+        }
         model.addAttribute("user", userService.findById(user_id));
         return "user-info";
     }

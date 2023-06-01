@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@jakarta.transaction.Transactional
+@org.springframework.transaction.annotation.Transactional
 public interface GameRepository extends JpaRepository<Game, Long> {
     public List<Game> findGamesByGenre(String genre);
 
